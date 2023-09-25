@@ -15,10 +15,9 @@ public class UserController : Controller
     {
         if (ModelState.IsValid)
         {
-            // Here, you would typically save the user to a database or perform user registration logic.
-            // For simplicity, we're not including database interactions in this example.
+         
 
-            return RedirectToAction("Login", "Account"); // Redirect to the login page after successful registration
+            return RedirectToAction("Login", "Account");
         }
 
         return View(model);
