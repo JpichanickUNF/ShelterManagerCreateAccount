@@ -27,6 +27,11 @@ namespace ShelterManagerCreateAccount.Controllers
             return View();
         }
 
+        public IActionResult LoginView()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

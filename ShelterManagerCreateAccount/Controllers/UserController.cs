@@ -22,4 +22,18 @@ public class UserController : Controller
 
         return View(model);
     }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> LoginView(User model)
+    {
+        if (ModelState.IsValid)
+        {
+
+
+            return RedirectToAction("Login", "Account");
+        }
+
+        return View(model);
+    }
 }
