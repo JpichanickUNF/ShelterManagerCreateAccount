@@ -28,6 +28,11 @@ namespace ShelterManagerCreateAccount.Controllers
             return View();
         }
 
+        public IActionResult ContactPage()
+        {
+            return View();
+        }
+
         public IActionResult Create()
         {
             return View();
