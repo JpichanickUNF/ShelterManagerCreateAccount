@@ -1,4 +1,42 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Contact Us</title>
+</head>
+<body>
+    <link href="site.css" rel="stylesheet">
+    <div class="body">
+        <div id="contact">
+            <h3 class="h3">Contact us</h3>
+            <form id="contact-id" class="contact-class" method="post" action="contact-form-process.php">
+                <div class="contact-group">
+                    <label for="Name" class="label">Full Name</label>
+                    <div class="input">
+                        <input type="text" id="Name" name="Name" class="conact-control" required>
+                    </div>
+                </div>
+                <div class="contact-group">
+                    <label for="Email" class="label">Email Address</label>
+                    <div class="input">
+                        <input type="email" id="Email" name="Email" class="contact-control" required>
+                    </div>
+                </div>
+                <div class="contact-group">
+                    <label for="Message" class="label">Your Message to The Shelter Manager Team</label>
+                    <div class="input">
+                        <textarea id="Message" name="Message" class="contact-control" rows="6" maxlength="3000" required></textarea>
+                    </div>
+                </div>
+                <div class="contact-group">
+                    <button type="submit" id="button" class="btn btn-primary btn-lg btn-block">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
 
