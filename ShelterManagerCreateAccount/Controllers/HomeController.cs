@@ -38,7 +38,7 @@ namespace ShelterManagerCreateAccount.Controllers
             return View();
         }
 
-        //I think this should fix the error.
+        //This should fix the error.
         public IActionResult Success()
         {
             return View();
