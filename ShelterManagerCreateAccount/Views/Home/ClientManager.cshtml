@@ -16,26 +16,26 @@
     @foreach (Client c in Model)
     {
         <tr>
-            <td>
+            <td align ="center">
                 @c.ClientID
             </td>
-            <td>
+            <td align="center">
                 @c.F_Name
             </td>
-            <td>
+            <td align="center">
                 @c.M_Name
-            </td>
-            <td>
+            </td >
+            <td align="center">
                 @c.L_Name
             </td>
-            <td>
+            <td align="center">
                 @c.Shelter_Location_ID
             </td>
-            <td>
+            <td align="center">
                 @Html.DropDownList("ShelterLocations", ViewBag.ShelterLocations as SelectList)
 
             </td>
-            <td>
+            <td align="center">
                 <button>Save</button>
             </td>
         </tr>
