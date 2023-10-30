@@ -35,33 +35,17 @@ namespace ShelterManagerCreateAccount.Controllers
             return View();
         }
 
+       // [HttpGet]
         public IActionResult ClientManager()
         {
 
             List<Client> Clients = new List<Client>();
 
-            //Client c1 = new Client();
-            //c1.F_Name = "FTest";
-            //c1.ClientID = 7;
-            //c1.L_Name = "LTest";
-            //Clients.Add(c1);
-
-            //Client c2 = new Client();
-            //c2.F_Name = "XTest";
-            //c2.ClientID = 8;
-            //c2.L_Name = "XLTest";
-            //Clients.Add(c2);
-
             IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
             string connStr = config.GetSection("Connnectionstrings:MyConnection").Value;
 
             ClientContext cc = new ClientContext(connStr);
-            //Client c2 = new Client();
-            //c2.F_Name = "XTest";
-            //c2.L_Name = "XLTest";
-            //c2.Shelter_Location_ID = 2;
-            //cc.Clients.Add(c2);
-            //cc.SaveChanges();
+
 
             ShelterLocationContext slc = new ShelterLocationContext(connStr);
 
@@ -82,10 +66,20 @@ namespace ShelterManagerCreateAccount.Controllers
 
             //}
 
-            
-
             return View(myData);
         }
+
+        [HttpPost]
+        [Route("ClientManagerUpdate")]
+        public IActionResult ClientManagerUpdate([FromForm] List<Client> clients)
+        {
+
+            return View();
+
+        }
+
+
+
 
         public IActionResult Create()
         {

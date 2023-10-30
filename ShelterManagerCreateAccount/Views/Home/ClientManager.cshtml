@@ -4,41 +4,33 @@
     ViewData["Title"] = "Client Manager";
 }
 <h1>@ViewData["Title"]</h1>
+@using (Html.BeginForm("ClientManagerUpdate", "Home", FormMethod.Post))
+{
+    <table align="left" border="1" style="border:1px solid black; background-color:white; font-size:25px; border-spacing: 30px;">
+        @foreach (Client c in Model)
+        {
+            <tr>
+                <td align="center">
+                    @c.ClientID
+                </td>
+                <td align="center">
+                    @c.F_Name
+                </td>
+                <td align="center">
+                    @c.M_Name
+                </td>
+                <td align="center">
+                    @c.L_Name
+                </td>
+                <td align="center">
+                    @Html.DropDownListFor(x => c.Shelter_Location_ID, new SelectList(ViewBag.ShelterLocations, "Shelter_Location_ID", "Shelter_Location_Description", ViewBag.ShelterLocations), new { @class = "xxx" })
+                </td>
+                @* <td align="center">
+                    <button>Save</button>
+                </td> *@
+            </tr>
+        }
+    </table>
+    <button type="submit" >Save</button>
 
-<table align="left" border="1" style="border:1px solid black; background-color:white; font-size:15px; border-spacing: 30px;">
-    @* <tr class="gridHeaderRow">
-        <td>
-            <br />
-            <input type="button" id="btnCreateNewFacilityEMR" value="Create New" class="ViewButton" onclick="FacilityEMRConfig(0)" />
-            &nbsp;<input type="button" id="btnRefresh" value="Refresh" class="ViewButton" onclick="RefreshPage()" />
-        </td>
-    </tr> *@
-    @foreach (Client c in Model)
-    {
-        <tr>
-            <td align ="center">
-                @c.ClientID
-            </td>
-            <td align="center">
-                @c.F_Name
-            </td>
-            <td align="center">
-                @c.M_Name
-            </td >
-            <td align="center">
-                @c.L_Name
-            </td>
-            <td align="center">
-                @c.Shelter_Location_ID
-            </td>
-            <td align="center">
-                @Html.DropDownListFor(x => c.Shelter_Location_ID, new SelectList(ViewBag.ShelterLocations, "Shelter_Location_ID", "Shelter_Location_Description", ViewBag.ShelterLocations), new { @class = "xxx" })
-            </td>
-            <td align="center">
-                <button>Save</button>
-            </td>
-        </tr>
-    }
-</table>
-
-
+}
