@@ -67,18 +67,21 @@ namespace ShelterManagerCreateAccount.Controllers
 
             var shelterLocations = from c in slc.ShelterLocations orderby c.Shelter_Location_Description select c;
 
-            SelectList sl = new SelectList(shelterLocations,"Shelter_Location_ID","Shelter_Location_Description");
-
-
-
-            ViewBag.ShelterLocations = sl;
+           // SelectList sl = new SelectList(shelterLocations,"Shelter_Location_ID","Shelter_Location_Description");
+            ViewBag.ShelterLocations = shelterLocations;
 
 
             var query = from c in cc.Clients orderby c.L_Name select c;
             //var query = from c in cc.Clients 
             //            join s in cc.ShelterLocations on c.Shelter_Location_ID = ShelterLocation.
             //            orderby c.L_Name select c;
-            var myData = query.ToList();
+            List<Client> myData = query.ToList();
+            //foreach (Client client in myData)
+            //{
+            //    client.Shelter_Locations = shelterLocations.ToList();
+
+            //}
+
             
 
             return View(myData);
