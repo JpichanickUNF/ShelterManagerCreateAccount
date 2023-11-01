@@ -74,11 +74,30 @@ namespace ShelterManagerCreateAccount.Controllers
         public IActionResult ClientManagerUpdate([FromForm] List<Client> clients)
         {
 
+
             return View();
 
         }
+        [Route("ClientDetailManager/{client_ID}")]
+        public IActionResult ClientDetailManager(int Client_ID)
+        {
+            IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
+            string connStr = config.GetSection("Connnectionstrings:MyConnection").Value;
+
+            ClientContext cc = new ClientContext(connStr);
 
 
+            ShelterLocationContext slc = new ShelterLocationContext(connStr);
+            var shelterLocations = from c in slc.ShelterLocations orderby c.Shelter_Location_Description select c;
+
+      
+            ViewBag.ShelterLocations = shelterLocations;
+
+            Client  theClient = cc.Clients.Find(Client_ID);
+           
+
+            return View(theClient);
+        }
 
 
         public IActionResult Create()

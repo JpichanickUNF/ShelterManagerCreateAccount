@@ -1,0 +1,33 @@
+﻿@model ShelterManagerCreateAccount.Models.Client
+
+@{
+    ViewData["Title"] = "Client Detail Manager";
+}
+<h1>@ViewData["Title"]</h1>
+@using (Html.BeginForm("ClientManagerUpdate", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>First Name</td>
+            <td>@Html.TextBoxFor(m => Model.F_Name, new { @class = "CommonField", MaxLength = 100 })</td>
+        </tr>
+       @*  <tr>
+            <td>Middle Name</td>
+            <td>@Html.TextBoxFor(@Model.M_Name)</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>@Html.TextBoxFor(@Model.L_Name)</td>
+        </tr>
+        <tr>
+            <td>Shelter Location</td>
+            <td>@Html.TextBoxFor(@Model.Shelter_Locations)</td>
+        </tr> *@
+        <tr>
+            <td></td>
+            <td><button tye="submit">SAVE</button></td>
+        </tr>
+    </table>
+}
+
+
