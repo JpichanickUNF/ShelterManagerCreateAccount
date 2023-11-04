@@ -74,36 +74,82 @@ namespace ShelterManagerCreateAccount.Controllers
             return View(myData);
         }
 
-        [HttpPost]
-        [Route("ClientManagerUpdate")]
-        public IActionResult ClientManagerUpdate([FromForm] List<Client> clients)
-        {
+        //[HttpPost]
+        //[Route("ClientManagerUpdate")]
+        //public IActionResult ClientManagerUpdate([FromForm] List<Client> clients)
+        //{
 
 
-            return View();
+        //    return View();
 
-        }
+        //}
+
+
         [Route("ClientDetailManager/{client_ID}")]
         public IActionResult ClientDetailManager(int Client_ID)
         {
             IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
             string connStr = config.GetSection("Connnectionstrings:MyConnection").Value;
-
             ClientContext cc = new ClientContext(connStr);
-
-
             ShelterLocationContext slc = new ShelterLocationContext(connStr);
             var shelterLocations = from c in slc.ShelterLocations orderby c.Shelter_Location_Description select c;
-            
-      
             ViewBag.ShelterLocations = shelterLocations;
-
             Client  theClient = cc.Clients.Find(Client_ID);
-           
-
             return View(theClient);
         }
 
+        [HttpPost]
+        [Route("ClientDetailManager/{client_ID}")]
+        public IActionResult ClientDetailManager([FromForm] Client c)
+        {
+            IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
+            string connStr = config.GetSection("Connnectionstrings:MyConnection").Value;
+
+            if (c.ClientID == 0)
+            {
+                //no client id, therefore insert
+                using (ClientContext cc = new ClientContext(connStr))
+                {
+                    cc.Clients.Add(c);
+                    cc.SaveChanges();
+                }
+            }
+            else
+            {
+                //have client id, so update
+                using (ClientContext db = new ClientContext(connStr))
+                {
+                    db.Entry(c).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+
+            return View(c);
+
+        }
+
+        [HttpPost]
+        [Route("DeleteClient")]
+        public JsonResult DeleteClient(int clientIDVal)
+        {
+            IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
+            string connStr = config.GetSection("Connnectionstrings:MyConnection").Value;
+            Client c = null;
+
+            using (ClientContext cc = new ClientContext(connStr))
+            {
+                c = cc.Clients.Find(clientIDVal);
+            }
+
+            using (ClientContext cc = new ClientContext(connStr))
+            {
+                cc.Entry(c).State = System.Data.Entity.EntityState.Deleted;
+                cc.SaveChanges();
+            }
+
+            return Json(new { Success = false, Message = "Delete failed." });
+
+        }
 
         public IActionResult Create()
         {

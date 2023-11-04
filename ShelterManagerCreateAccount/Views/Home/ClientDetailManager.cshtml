@@ -4,7 +4,7 @@
     ViewData["Title"] = "Client Detail Manager";
 }
 <h1>@ViewData["Title"]</h1>
-@using (Html.BeginForm("ClientManagerUpdate", "Home", FormMethod.Post))
+@using (Html.BeginForm("ClientDetailManager", "Home", FormMethod.Post))
 {
     <table>
         <tr>
@@ -26,6 +26,10 @@
         <tr>
             <td></td>
             <td><button tye="submit">SAVE</button></td>
+        </tr>
+        <tr style="visibility: hidden;">
+            <td></td>
+            <td>@Html.TextBoxFor(m => Model.ClientID, new { @class = "CommonField", MaxLength = 100 })</td>
         </tr>
     </table>
 }
