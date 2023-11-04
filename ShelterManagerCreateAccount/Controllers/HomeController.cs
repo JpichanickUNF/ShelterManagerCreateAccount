@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using NuGet.Versioning;
 using ShelterManagerCreateAccount.DataAccess;
 using ShelterManagerCreateAccount.Models;
 using System.Diagnostics;
@@ -47,22 +48,26 @@ namespace ShelterManagerCreateAccount.Controllers
             ClientContext cc = new ClientContext(connStr);
 
 
-            ShelterLocationContext slc = new ShelterLocationContext(connStr);
+            //ShelterLocationContext slc = new ShelterLocationContext(connStr);
+            //var shelterLocations = from c in slc.ShelterLocations orderby c.Shelter_Location_Description select c;
 
-            var shelterLocations = from c in slc.ShelterLocations orderby c.Shelter_Location_Description select c;
-
-           // SelectList sl = new SelectList(shelterLocations,"Shelter_Location_ID","Shelter_Location_Description");
-            ViewBag.ShelterLocations = shelterLocations;
+            // SelectList sl = new SelectList(shelterLocations,"Shelter_Location_ID","Shelter_Location_Description");
+            // ViewBag.ShelterLocations = shelterLocations;
 
 
-            var query = from c in cc.Clients orderby c.L_Name select c;
-            //var query = from c in cc.Clients 
-            //            join s in cc.ShelterLocations on c.Shelter_Location_ID = ShelterLocation.
-            //            orderby c.L_Name select c;
+            //var query = from c in cc.Clients orderby c.L_Name select c;
+            var query = from c in cc.Clients
+                        join s in cc.ShelterLocations on c.Shelter_Location_ID equals s.Shelter_Location_ID
+                        orderby c.L_Name
+                        select c;
+            //var query = cc.Clients.OrderBy(x => x.L_Name);
+
+
             List<Client> myData = query.ToList();
             //foreach (Client client in myData)
             //{
-            //    client.Shelter_Locations = shelterLocations.ToList();
+            //    ShelterLocation sl = slc.ShelterLocations.Where(b => b.Shelter_Location_ID == client.Shelter_Location_ID).FirstOrDefault();
+            //    client.Shelter_Location_Description = sl.Shelter_Location_Description;
 
             //}
 
@@ -89,7 +94,7 @@ namespace ShelterManagerCreateAccount.Controllers
 
             ShelterLocationContext slc = new ShelterLocationContext(connStr);
             var shelterLocations = from c in slc.ShelterLocations orderby c.Shelter_Location_Description select c;
-
+            
       
             ViewBag.ShelterLocations = shelterLocations;
 

@@ -21,9 +21,7 @@
                 <td align="center">
                     @c.L_Name
                 </td>
-                <td align="center">
-                    @Html.DropDownListFor(x => c.Shelter_Location_ID, new SelectList(ViewBag.ShelterLocations, "Shelter_Location_ID", "Shelter_Location_Description", ViewBag.ShelterLocations), new { @class = "xxx" })
-                </td>
+               
                 <td align="center">
                     <button type="button" onclick="OpenClientDetailWindow(@c.ClientID)">Edit</button>
                 
