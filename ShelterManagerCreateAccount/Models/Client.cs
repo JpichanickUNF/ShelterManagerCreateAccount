@@ -12,7 +12,6 @@ namespace ShelterManagerCreateAccount.Models
         public string M_Name { get; set; }
         public string L_Name { get; set; }
 
-        //[BindProperty]
         public int Shelter_Location_ID { get; set; }
 
         public List<ShelterLocation> Shelter_Locations { get; set; }

@@ -7,7 +7,6 @@ namespace ShelterManagerCreateAccount.Models
     {
         [Key]
         public int Shelter_Location_ID { get; set; }
-
         public string Shelter_Location_Description { get; set; }
     }
 }

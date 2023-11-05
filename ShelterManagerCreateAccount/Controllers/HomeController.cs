@@ -49,7 +49,6 @@ namespace ShelterManagerCreateAccount.Controllers
             return View();
         }
 
-       // [HttpGet]
         public IActionResult ClientManager()
         {
 
@@ -66,35 +65,15 @@ namespace ShelterManagerCreateAccount.Controllers
              SelectList sl = new SelectList(shelterLocations,"Shelter_Location_ID","Shelter_Location_Description");
             ViewBag.ShelterLocations = shelterLocations;
 
-
-            //var query = from c in cc.Clients orderby c.L_Name select c;
             var query = from c in cc.Clients
                         join s in cc.ShelterLocations on c.Shelter_Location_ID equals s.Shelter_Location_ID
                         orderby c.L_Name
                         select c;
-            //var query = cc.Clients.OrderBy(x => x.L_Name);
-
 
             List<Client> myData = query.ToList();
-            //foreach (Client client in myData)
-            //{
-            //    ShelterLocation sl = slc.ShelterLocations.Where(b => b.Shelter_Location_ID == client.Shelter_Location_ID).FirstOrDefault();
-            //    client.Shelter_Location_Description = sl.Shelter_Location_Description;
-
-            //}
 
             return View(myData);
         }
-
-        //[HttpPost]
-        //[Route("ClientManagerUpdate")]
-        //public IActionResult ClientManagerUpdate([FromForm] List<Client> clients)
-        //{
-
-
-        //    return View();
-
-        //}
 
 
         [Route("ClientDetailManager/{client_ID}")]
@@ -174,7 +153,6 @@ namespace ShelterManagerCreateAccount.Controllers
             return View();
         }
 
-        //This should fix the error.
         public IActionResult Success()
         {
             return View();
