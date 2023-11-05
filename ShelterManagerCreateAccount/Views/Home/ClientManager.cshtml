@@ -28,6 +28,9 @@
             Last Name
         </td>
         <td align="center">
+            Location
+        </td>
+        <td align="center">
             Actions
         </td>
     </tr>
@@ -36,9 +39,6 @@
     @foreach (Client c in Model)
     {
         <tr style="border:solid;">
-            @*  <td align="center">
-        @c.ClientID
-        </td> *@
             <td align="center">
                 @c.F_Name
             </td>
@@ -48,7 +48,7 @@
             <td align="center">
                 @c.L_Name
             </td>
-
+            <td>@Html.DropDownListFor(x => c.Shelter_Location_ID, new SelectList(ViewBag.ShelterLocations, "Shelter_Location_ID", "Shelter_Location_Description", ViewBag.ShelterLocations), new { @disabled = "disabled" })</td>
             <td align="center">
                 <button type="button" onclick="OpenClientDetailWindow(@c.ClientID)">Edit</button>
 

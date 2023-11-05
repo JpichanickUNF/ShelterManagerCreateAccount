@@ -28,7 +28,20 @@ namespace ShelterManagerCreateAccount.Controllers
 
         public IActionResult FAQ()
         {
-            return View();
+
+            IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
+            string connStr = config.GetSection("Connnectionstrings:MyConnection").Value;
+
+            FAQContext ff = new FAQContext(connStr);
+
+
+            var query = from f in ff.FrequentlyAskedQuestions
+                        orderby f.QuestionID
+                        select f;
+
+            List<FrequentlyAskedQuestions> myData = query.ToList();
+            return View(myData);
+
         }
 
         public IActionResult ContactPage()
@@ -48,11 +61,10 @@ namespace ShelterManagerCreateAccount.Controllers
             ClientContext cc = new ClientContext(connStr);
 
 
-            //ShelterLocationContext slc = new ShelterLocationContext(connStr);
-            //var shelterLocations = from c in slc.ShelterLocations orderby c.Shelter_Location_Description select c;
-
-            // SelectList sl = new SelectList(shelterLocations,"Shelter_Location_ID","Shelter_Location_Description");
-            // ViewBag.ShelterLocations = shelterLocations;
+            ShelterLocationContext slc = new ShelterLocationContext(connStr);
+            var shelterLocations = from c in slc.ShelterLocations orderby c.Shelter_Location_Description select c;
+             SelectList sl = new SelectList(shelterLocations,"Shelter_Location_ID","Shelter_Location_Description");
+            ViewBag.ShelterLocations = shelterLocations;
 
 
             //var query = from c in cc.Clients orderby c.L_Name select c;
@@ -94,7 +106,13 @@ namespace ShelterManagerCreateAccount.Controllers
             ShelterLocationContext slc = new ShelterLocationContext(connStr);
             var shelterLocations = from c in slc.ShelterLocations orderby c.Shelter_Location_Description select c;
             ViewBag.ShelterLocations = shelterLocations;
-            Client  theClient = cc.Clients.Find(Client_ID);
+            Client theClient = cc.Clients.Find(Client_ID);
+
+            if(theClient == null)
+            {
+                theClient = new Client();
+            }
+
             return View(theClient);
         }
 
@@ -124,7 +142,7 @@ namespace ShelterManagerCreateAccount.Controllers
                 }
             }
 
-            return View(c);
+            return View(null);
 
         }
 

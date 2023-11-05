@@ -4,34 +4,48 @@
     ViewData["Title"] = "Client Detail Manager";
 }
 <h1>@ViewData["Title"]</h1>
-@using (Html.BeginForm("ClientDetailManager", "Home", FormMethod.Post))
+
+@if(Model != null)
 {
-    <table>
-        <tr>
-            <td>First Name</td>
-            <td>@Html.TextBoxFor(m => Model.F_Name, new { @class = "CommonField", MaxLength = 100 })</td>
-        </tr>
-        <tr>
-            <td>Middle Name</td>
-            <td>@Html.TextBoxFor(m => Model.M_Name, new { @class = "CommonField", MaxLength = 100 })</td>
-        </tr>
-        <tr>
-            <td>Last Name</td>
-            <td>@Html.TextBoxFor(m => Model.L_Name, new { @class = "CommonField", MaxLength = 100 })</td>
-        </tr>
-        <tr>
-            <td>Shelter Location</td>
-            <td>@Html.DropDownListFor(x => Model.Shelter_Location_ID, new SelectList(ViewBag.ShelterLocations, "Shelter_Location_ID", "Shelter_Location_Description", ViewBag.ShelterLocations), new { @class = "xxx" })</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><button tye="submit">SAVE</button></td>
-        </tr>
-        <tr style="visibility: hidden;">
-            <td></td>
-            <td>@Html.TextBoxFor(m => Model.ClientID, new { @class = "CommonField", MaxLength = 100 })</td>
-        </tr>
-    </table>
+    @using (Html.BeginForm("ClientDetailManager", "Home", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td>@Html.TextBoxFor(m => Model.F_Name, new { @class = "CommonField", MaxLength = 100 })</td>
+            </tr>
+            <tr>
+                <td>Middle Name</td>
+                <td>@Html.TextBoxFor(m => Model.M_Name, new { @class = "CommonField", MaxLength = 100 })</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>@Html.TextBoxFor(m => Model.L_Name, new { @class = "CommonField", MaxLength = 100 })</td>
+            </tr>
+            <tr>
+                <td>Shelter Location</td>
+                <td>@Html.DropDownListFor(x => Model.Shelter_Location_ID, new SelectList(ViewBag.ShelterLocations, "Shelter_Location_ID", "Shelter_Location_Description", ViewBag.ShelterLocations), new { @class = "xxx" })</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button tye="submit">SAVE</button></td>
+            </tr>
+            <tr style="visibility: hidden;">
+                <td></td>
+                <td>@Html.TextBoxFor(m => Model.ClientID, new { @class = "CommonField", MaxLength = 100 })</td>
+            </tr>
+        </table>
+    }
 }
+else
+{
+    <script>
+        opener.location.reload();
+        self.close();
+    </script>
+}
+
+
+
 
 
