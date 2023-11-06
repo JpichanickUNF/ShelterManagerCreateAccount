@@ -12,7 +12,9 @@
         <table>
             <tr>
                 <td>First Name</td>
-                <td>@Html.TextBoxFor(m => Model.F_Name, new { @class = "CommonField", MaxLength = 100 })</td>
+                <td>@Html.TextBoxFor(m => Model.F_Name, new { @class = "CommonField", MaxLength = 100 })
+                    @Html.ValidationMessageFor(m => @Model.F_Name)
+                </td>
             </tr>
             <tr>
                 <td>Middle Name</td>
@@ -20,7 +22,9 @@
             </tr>
             <tr>
                 <td>Last Name</td>
-                <td>@Html.TextBoxFor(m => Model.L_Name, new { @class = "CommonField", MaxLength = 100 })</td>
+                <td>@Html.TextBoxFor(m => Model.L_Name, new { @class = "CommonField", MaxLength = 100 })
+                    @Html.ValidationMessageFor(m => @Model.L_Name)
+                </td>
             </tr>
             <tr>
                 <td>Shelter Location</td>
@@ -28,7 +32,9 @@
             </tr>
             <tr>
                 <td></td>
-                <td><button tye="submit">SAVE</button></td>
+                <td><button type="submit"  onclick="return ValidateForm();" >SAVE</button>
+                    @ViewBag.ErrorMessage
+                </td>
             </tr>
             <tr style="visibility: hidden;">
                 <td></td>
@@ -37,7 +43,7 @@
         </table>
     }
 }
-else
+else if (ViewBag.ErrorMessage.Length == 0)
 {
     <script>
         opener.location.reload();
@@ -47,5 +53,22 @@ else
 
 
 
+<script>
+    function ValidateForm() 
+    { 
+        var F_Name = document.getElementById('F_Name').value;
+        if (F_Name == null || F_Name.length == 0) 
+        { 
+            alert("First Name is Required!");
+            return false;
+        }
 
+        var L_Name = document.getElementById('L_Name').value;
+        if (L_Name == null || L_Name.length == 0) {
+            alert("Last Name is Required!");
+            return false;
+        }
+        return true;
+    }
+</script>
 

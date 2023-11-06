@@ -101,27 +101,38 @@ namespace ShelterManagerCreateAccount.Controllers
         {
             IConfiguration config = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
             string connStr = config.GetSection("Connnectionstrings:MyConnection").Value;
+            ViewBag.ErrorMessage = "";
 
-            if (c.ClientID == 0)
-            {
-                //no client id, therefore insert
-                using (ClientContext cc = new ClientContext(connStr))
-                {
-                    cc.Clients.Add(c);
-                    cc.SaveChanges();
-                }
-            }
-            else
-            {
-                //have client id, so update
-                using (ClientContext db = new ClientContext(connStr))
-                {
-                    db.Entry(c).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
-                }
-            }
+            //if (ModelState.IsValid)
+            //{
 
-            return View(null);
+
+                if (c.ClientID == 0)
+                {
+                    //no client id, therefore insert
+                    using (ClientContext cc = new ClientContext(connStr))
+                    {
+                        cc.Clients.Add(c);
+                        cc.SaveChanges();
+                    }
+                }
+                else
+                {
+                    //have client id, so update
+                    using (ClientContext db = new ClientContext(connStr))
+                    {
+                        db.Entry(c).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                return View(null);
+            //}
+            //else
+            //{
+            //    ViewBag.ErrorMessage = "First Name and Last Name are required!";
+            //    return View(c);
+            //}
+            
 
         }
 
