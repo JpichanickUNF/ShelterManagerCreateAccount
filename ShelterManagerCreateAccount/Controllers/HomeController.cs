@@ -32,7 +32,14 @@ namespace ShelterManagerCreateAccount.Controllers
 
         public IActionResult ClientView()
         {
-            return View();
+            shltr = new List<Availability>()
+            {
+                new Availability() { Shelter = "Shelter1", Cots = cotAmmount, Info = "href='www.youtube.com'",},
+                new Availability() { Shelter = "Shelter2", Cots = cotAmmount, Info = "href='www.youtube.com'"},
+                new Availability() { Shelter = "Shelter3", Cots = cotAmmount, Info = "href='www.youtube.com'",},
+            };
+
+            return View(shltr);
         }
 
         public IActionResult FAQ()
@@ -196,5 +203,14 @@ namespace ShelterManagerCreateAccount.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-    }
+        private List<Availability> shltr;
+        private int cotAmmount = 30;
+
+
+        
+
+
+ 
+
+}
 }
