@@ -21,31 +21,31 @@
             <h3 class="h3">Want to send us a message?</h3>
 
 
-            <form id="ContactUs" asp-action=Success method="post">
-            
-                <div class="contact-group">
-                    <label for="Name" class="label">Full Name</label>
-                    <div class="input">
-                        <input type="text" id="Name" name="Name" cols="50" class="conact-control" required>
-                    </div>
-                </div>
-                <div class="contact-group">
-                    <label for="Email" class="label">Email Address</label>
-                    <div class="input">
-                        <input type="email" id="Email" cols="50" name="Email" class="contact-control" required>
-                    </div>
-                </div>
-                <div class="contact-group">
-                    <label for="Message" class="label">Your Message to The Shelter Manager Team</label>
-                    <div class="input">
-                        <textarea id="Message" name="Message" class="contact-control" cols="50" rows="6" maxlength="1000" required></textarea>
-                    </div>
-                </div>
-                <div class="contact-group">
-                    <button asp-action="Success" id="SendMessage" value="click" type="submit" class="btn btn-primary">Send Message</button>
 
-                </div>
-            </form>
+             <form action="mailto:N014753672@unf.edu" method="post" enctype="text/plain">
+                    <div class="contact-group">
+                        <label for="Name" class="label">Full Name</label>
+                        <div class="input">
+                            <input type="text" id="Name" name="Name" cols="50" class="conact-control" required>
+                        </div>
+                    </div>
+                    <div class="contact-group">
+                        <label for="Email" class="label">Email Address</label>
+                        <div class="input">
+                            <input type="email" id="Email" cols="50" name="Email" class="contact-control" required>
+                        </div>
+                    </div>
+                    <div class="contact-group">
+                        <label for="Message" class="label">Your Message to The Shelter Manager Team</label>
+                        <div class="input">
+                            <textarea id="Message" name="Message" class="contact-control" cols="50" rows="6" maxlength="1000" required></textarea>
+                        </div>
+                    </div>
+                    <div class="contact-group">
+                        <button asp-action="Success" id="SendMessage" value="click" type="submit" class="btn btn-primary">Send Message</button>
+                        <input type="submit" value="Send">
+                    </div>
+                </form>
         </div>
     </center>
 </body>
