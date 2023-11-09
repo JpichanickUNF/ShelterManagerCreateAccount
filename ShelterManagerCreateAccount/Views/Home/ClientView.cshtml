@@ -1,0 +1,29 @@
+﻿@model List<ShelterManagerCreateAccount.Models.Availability>
+@{
+    ViewData["Title"] = "ClientView";
+}
+
+<h1>Shelters</h1>
+
+<div><b>Table Format Data Displaying in ForEach</b><br /></div>  
+<table class="table table-bordered table-responsive table-hover">  
+    <tr>  
+        <th>Shelters</th>  
+        <th>Availability</th>  
+        <th>Show Interest</th>  
+        <th>Info</th>
+       
+    </tr>  
+    @foreach (Availability a in Model)
+      
+        <tr>  
+            <td>@a.Shelter</td>  
+            <td>@a.Cots</td>  
+            <td><href="#"/></td>
+            <td>@a.Info</td>
+
+        </tr>
+</table>  
+
+
+

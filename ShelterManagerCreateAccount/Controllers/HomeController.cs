@@ -30,6 +30,11 @@ namespace ShelterManagerCreateAccount.Controllers
             return View();
         }
 
+        public IActionResult ClientView()
+        {
+            return View();
+        }
+
         public IActionResult FAQ()
         {
 
