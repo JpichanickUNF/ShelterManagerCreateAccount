@@ -1,42 +1,63 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Edit Shelter Profile</title>
+    <title> Edit Profile </title>
     <link rel="stylesheet" href="site.css">
 </head>
 <body>
-    <section class="main">
-        <div class="profile-card">
-            <div class="image">
-                <!--<img src="" alt="" class="">-->
-            </div>
-            <div class="data">
-                <h2>City Rescue Mission</h2>
-                <span>Contact: Mike Evans</span>
-            </div>
-            <div class="image">
-                <img src="MikeEvans.png" alt="" class="">
-            </div>
-            <div class="row">
-                <div class="info">
-                    <h3>Phone Number</h3>
-                    <span>904-421-5208</span>
-                </div>
-                <div class="info">
-                    <h3>Email Address</h3>
-                    <span>mevans@crmjax.org</span>
-                </div>
-                <div class="info">
-                    <h3>Operating Hours</h3>
-                    <span>8 A.M.-8 P.M.<span>
+
+    <div class="c1">
+        <h1 class="Title">Edit Profile</h1>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="text-center">
+                    <img src="https://c8.alamy.com/zooms/9/9c30002a90914b58b785a537a39421ba/2c80ydc.jpg" class="Logo img-circle img-thumbnail" alt="Shetlter Logo">
+                    <h6>Upload a different photo</h6>
+                    <input type="file" class="form-control">
                 </div>
             </div>
-            <div class="buttons">
-                <a href="ShelterProfile" target=”_blank” class="btn">Save</a>
+
+            <div class="col personal-info">
+                <h3>Shelter Information</h3>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Shelter name:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="Enter Shelter Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Contact name:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="Enter Name of Shelter Manager">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Phone Number:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="(XXX) XXX-XXXX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="example@gmail.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Operation Hours:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" value="X AM - X PM">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-</body>
+    </div>
+    <hr>
+    </body>
 </html>

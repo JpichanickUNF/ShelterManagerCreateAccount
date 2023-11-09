@@ -9,42 +9,43 @@
 <body>
     <center>
         <link href="site.css" rel="stylesheet">
-            <div id="contact">
-                <h3 class="h3">Contact us</h3>
-                <p>Phone Number: (904) 123-4567</p>
-                <p>
-                    Address: 123 Corporate Drive
-                    Jacksonville, FL
-                    32224
-                </p>
+        <div id="contact">
+            <h3 class="h3">Contact us</h3>
+            <p>Phone Number: (904) 123-4567</p>
+            <p>
+                Address: 123 Corporate Drive
+                Jacksonville, FL
+                32224
+            </p>
 
-                <h3 class="h3">Want to send us a message?</h3>
+            <h3 class="h3">Want to send us a message?</h3>
 
-                <form asp-action=Success method="post">
-                    <div class="contact-group">
-                        <label for="Name" class="label">Full Name</label>
-                        <div class="input">
-                            <input type="text" id="Name" name="Name" cols="50" class="conact-control" required>
-                        </div>
-                    </div>
-                    <div class="contact-group">
-                        <label for="Email" class="label">Email Address</label>
-                        <div class="input">
-                            <input type="email" id="Email" cols="50" name="Email" class="contact-control" required>
-                        </div>
-                    </div>
-                    <div class="contact-group">
-                        <label for="Message" class="label">Your Message to The Shelter Manager Team</label>
-                        <div class="input">
-                            <textarea id="Message" name="Message" class="contact-control" cols="50" rows="6" maxlength="1000" required></textarea>
-                        </div>
-                    </div>
-                    <div class="contact-group">
 
-                        <button asp-action="Success" type="submit" class="btn btn-primary">Send Message</button>
-
+            <form id="ContactUs" asp-action=Success method="post">
+            
+                <div class="contact-group">
+                    <label for="Name" class="label">Full Name</label>
+                    <div class="input">
+                        <input type="text" id="Name" name="Name" cols="50" class="conact-control" required>
                     </div>
-                </form>
+                </div>
+                <div class="contact-group">
+                    <label for="Email" class="label">Email Address</label>
+                    <div class="input">
+                        <input type="email" id="Email" cols="50" name="Email" class="contact-control" required>
+                    </div>
+                </div>
+                <div class="contact-group">
+                    <label for="Message" class="label">Your Message to The Shelter Manager Team</label>
+                    <div class="input">
+                        <textarea id="Message" name="Message" class="contact-control" cols="50" rows="6" maxlength="1000" required></textarea>
+                    </div>
+                </div>
+                <div class="contact-group">
+                    <button asp-action="Success" id="SendMessage" value="click" type="submit" class="btn btn-primary">Send Message</button>
+
+                </div>
+            </form>
         </div>
     </center>
 </body>

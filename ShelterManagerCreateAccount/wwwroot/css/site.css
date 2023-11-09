@@ -32,7 +32,7 @@ body {
 .profile-card {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     max-width: 900px;
     width: 100%;
     border-radius: 25px;
@@ -48,13 +48,13 @@ body {
 
 .image {
     position: relative;
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
 }
 .data {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     margin-top: 15px;
 }
 
@@ -69,18 +69,18 @@ span {
 
 .row {
     display: flex;
-    align-items: left;
+    align-items: center;
     margin-top: 30px;
 }
 
     .row .info {
-        text-align: left;
+        text-align: center;
         padding: 0 20px;
     }
 
 .buttons {
     display: flex;
-    align-items: left;
+    align-items: center;
     margin-top: 30px;
 }
 
@@ -94,3 +94,12 @@ span {
         white-space: nowrap;
         background: blue;
     }
+
+body {
+    margin-top: 20px;
+}
+
+.Logo {
+    width: 200px;
+    height: 200px;
+}				              
