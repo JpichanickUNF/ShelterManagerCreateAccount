@@ -52,7 +52,7 @@ namespace ShelterManagerCreateAccount.Controllers
         {
             return View();
         }
-        public IActionResult ShelterProfile()
+        public IActionResult EditShelterProfile()
         {
             return View();
         }
