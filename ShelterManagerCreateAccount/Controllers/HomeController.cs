@@ -25,6 +25,10 @@ namespace ShelterManagerCreateAccount.Controllers
         {
             return View();
         }
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
 
         public IActionResult FAQ()
         {

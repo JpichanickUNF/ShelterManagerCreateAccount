@@ -15,7 +15,7 @@ public class UserController : Controller
     {
         if (ModelState.IsValid)
         {
-         
+
 
             return RedirectToAction("Login", "Account");
         }
@@ -36,4 +36,11 @@ public class UserController : Controller
 
         return View(model);
     }
+    [HttpGet]
+    public IActionResult ChangePassword()
+    {
+        return View();
+    }
+
 }
+
