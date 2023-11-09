@@ -1,52 +1,42 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Contact Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Edit Shelter Profile</title>
+    <link rel="stylesheet" href="site.css">
 </head>
 <body>
-    <center>
-        <link href="site.css" rel="stylesheet">
-        <div id="contact">
-            <h3 class="h3">Contact us</h3>
-            <p>Phone Number: (904) 123-4567</p>
-            <p>
-                Address: 123 Corporate Drive
-                Jacksonville, FL
-                32224
-            </p>
-
-            <h3 class="h3">Want to send us a message?</h3>
-
-            <form asp-action=Success method="post">
-                <div class="contact-group">
-                    <label for="Name" class="label">Full Name</label>
-                    <div class="input">
-                        <input type="text" id="Name" name="Name" cols="50" class="conact-control" required>
-                    </div>
+    <section class="main">
+        <div class="profile-card">
+            <div class="image">
+                <!--<img src="" alt="" class="">-->
+            </div>
+            <div class="data">
+                <h2>City Rescue Mission</h2>
+                <span>Contact: Mike Evans</span>
+            </div>
+            <div class="image">
+                <img src="MikeEvans.png" alt="" class="">
+            </div>
+            <div class="row">
+                <div class="info">
+                    <h3>Phone Number</h3>
+                    <span>904-421-5208</span>
                 </div>
-                <div class="contact-group">
-                    <label for="Email" class="label">Email Address</label>
-                    <div class="input">
-                        <input type="email" id="Email" cols="50" name="Email" class="contact-control" required>
-                    </div>
+                <div class="info">
+                    <h3>Email Address</h3>
+                    <span>mevans@crmjax.org</span>
                 </div>
-                <div class="contact-group">
-                    <label for="Message" class="label">Your Message to The Shelter Manager Team</label>
-                    <div class="input">
-                        <textarea id="Message" name="Message" class="contact-control" cols="50" rows="6" maxlength="1000" required></textarea>
-                    </div>
+                <div class="info">
+                    <h3>Operating Hours</h3>
+                    <span>8 A.M.-8 P.M.<span>
                 </div>
-                <div class="contact-group">
-
-                    <button asp-action="Success" type="submit" class="btn btn-primary">Send Message</button>
-
-                </div>
-            </form>
+            </div>
+            <div class="buttons">
+                <a href="ShelterProfile" target=”_blank” class="btn">Save</a>
+            </div>
         </div>
-    </center>
+    </section>
 </body>
 </html>
-
