@@ -52,6 +52,10 @@ namespace ShelterManagerCreateAccount.Controllers
         {
             return View();
         }
+        public IActionResult ShelterProfile()
+        {
+            return View();
+        }
 
         public IActionResult ClientManager()
         {
