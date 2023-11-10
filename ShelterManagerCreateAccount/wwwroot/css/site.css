@@ -31,10 +31,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 900px;
+    max-width: 600px;
     width: 100%;
     border-radius: 15px;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #ffffff40;
     box-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
@@ -92,6 +92,21 @@ span {
         white-space: nowrap;
         background: blue;
     }
+.saveButton {
+    display: flex;
+    margin-top: 30px;
+    justify-content:center;
+    text-align: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    padding: 8px 25px;
+    border-radius: 25px;
+    font-size: 48px;
+    white-space: nowrap;
+    background: lightBlue;
+}
 
 body {
     margin-top: 20px;
