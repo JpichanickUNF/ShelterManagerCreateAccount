@@ -6,11 +6,15 @@ namespace ShelterManagerCreateAccount.Models
 {
     public class Availability
     {
+        public int ShelterID { get; set; }
+
         public string Shelter {  get; set; }
 
         public int Cots { get; set; }
 
         public string Info { get; set; }
+
+        public int AvailableCots { get; set; }
 
     }
 }

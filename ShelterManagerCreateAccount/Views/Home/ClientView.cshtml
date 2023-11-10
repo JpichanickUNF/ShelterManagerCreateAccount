@@ -18,9 +18,13 @@
       {
     <tr>  
         <td>@a.Shelter</td>  
-        <td>@a.Cots</td>  
-        <td><href="#"/></td>
-        <td>@a.Info</td>
+        <td>@a.AvailableCots/@a.Cots</td>
+            <td>
+                <form action="">
+                    <button type="submit" onclick="CotCount(@a.ShelterID)">Show Interest</button>
+                </form>
+            </td>
+        <td><a href="@a.Info">shelter info</a></td>
 
     </tr>
       }
